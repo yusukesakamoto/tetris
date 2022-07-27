@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<canvas id="can"></canvas>
+<script>
+// ブロック一つのサイズ（ピクセル）
+const BLOCKSIZE = 30;
+// テトロミノのサイズ
+const TETRO_SIZE = 4;
+
+let can = document.getElementById('can');
+let con = can.getContext("2d");
+
+
+
+let tetro = [
+    [0,0,0,0],
+    [1,1,0,0],
+    [0,1,1,0],
+    [0,0,0,0]
+]
+
+for(let y=0; y<TETRO_SIZE;y++){
+    for(let x=0; x<TETRO_SIZE;x++){
+        
+        if(tetro[y][x]){
+        let px = x * BLOCKSIZE;
+        let py = y * BLOCKSIZE;
+
+        con.fillStyle = "red";
+        con.fillRect(px,py,BLOCKSIZE,BLOCKSIZE);
+        con.strokeStyle = "black";
+        con.strokeRect(px,py,BLOCKSIZE,BLOCKSIZE);
+        }
+    }
+}
+
+</script>
+</body>
+</html>
